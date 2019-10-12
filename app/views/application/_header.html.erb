@@ -1,0 +1,7 @@
+<nav>
+	<% if user_signed_in? %>
+		<%= render 'user_top_menu'  %>
+	<% else %>
+		 <%= render 'visitor_top_menu' 	%>
+	<% end %>
+</nav>
