@@ -1,4 +1,9 @@
 <div class="right top menu">
 	And other menu items
+	
+	<%= link_to 'This User', current_user %>
+	<%= link_to 'Home', root_path %>
+	<%= link_to 'Create(dropdown)', '#' %>
+	<%= link_to 'Find Friends', users_path %>
 	<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 </div>
