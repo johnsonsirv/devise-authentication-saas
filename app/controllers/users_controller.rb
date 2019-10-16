@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  
+  before_action :get_created_posts, only: [:show]
+	
 	def index
 		@users = User.all_except current_user
   end
@@ -11,5 +12,10 @@ class UsersController < ApplicationController
 	private
 	def find_user
 		User.find_by(id: params[:id])
+	end
+	
+	def get_created_posts
+		initialize_new_post_editor
+		@posts = Post.authored_by current_user
 	end
 end
