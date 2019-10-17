@@ -16,6 +16,6 @@ class UsersController < ApplicationController
 	
 	def get_created_posts
 		initialize_new_post_editor
-		@posts = Post.authored_by current_user
+		@posts = Post.authored_by find_user
 	end
 end

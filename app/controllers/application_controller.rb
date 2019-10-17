@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	before_action :authenticate_user! 
 	#before_action :configure_permitted_parameters, if: :devise_controller?
-	
+	include PostsHelper
 	
 	def set_flash_notice(type, message)
 		flash[type.to_sym] = message

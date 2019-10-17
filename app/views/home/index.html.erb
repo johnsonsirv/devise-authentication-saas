@@ -1,6 +1,7 @@
 <div>
 	<% if user_signed_in? %>
 		<p>render left of post partial (facebook web feeds, groups menu etc)</p>
+		<%= render 'post_form' %>	
 		<div> <%= render @posts %></div>
 		<p>render right of post partial (facebook web suggested, ads menu etc)</p>
 		<p>render rightmost of post partial (facebook friends online on messanger)</p>

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :get_timeline_posts, only: [:index]
 	before_action :initialize_new_post_editor, only: [:index]
+	before_action :find_post, only: [:edit, :update, :destroy]
 	
   def index ;  end ;
 	
@@ -8,18 +9,19 @@ class PostsController < ApplicationController
 		save_post post_params
 	end
 	
-	def edit
-	end
+	def edit;	end ;
 	
 	def update
+		
 	end
 	
 	def destroy
 	end
 
 	private
+	
 	def get_timeline_posts
-		@posts = Post.all #in milestone 5>> modify to include posts from current_user's friends
+		@posts = Post.timeline_posts_for current_user
 	end
 	
 	def save_post(post_params)
@@ -33,6 +35,14 @@ class PostsController < ApplicationController
 			initialize_new_post_editor
 			redirect_back fallback_location: root_path
 		end
+	end
+	
+	def post_update(post_params)
+		@post.update_post post_params
+	end
+	
+	def find_post
+		@post = Post.find(params[:id])
 	end
 	
 	def post_params

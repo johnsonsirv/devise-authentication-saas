@@ -1,5 +1,9 @@
-<p> <%= link_to post.user.fullname, post.user %></p>
+<p> [img] <%= link_to post.user.fullname, post.user %></p>
 <p> <%= post.content %></p>
 <p>Count of likes | count of comments</p>
+<%= link_to 'Like', '#' %> | 
+<%= link_to 'Share', '#' %> | 
+<%= show_post_actions_for(post) %>
+
 <p> post comments </p>
 
