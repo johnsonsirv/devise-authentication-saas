@@ -12,10 +12,13 @@ class PostsController < ApplicationController
 	def edit;	end ;
 	
 	def update
-		
+		post_update post_params
 	end
 	
 	def destroy
+		@post.destroy
+		set_flash_notice 'notice', 'Post deleted'
+		redirect_to root_path
 	end
 
 	private
@@ -38,7 +41,8 @@ class PostsController < ApplicationController
 	end
 	
 	def post_update(post_params)
-		@post.update_post post_params
+		set_flash_notice 'notice', @post.update_post(post_params)
+		redirect_to root_path
 	end
 	
 	def find_post

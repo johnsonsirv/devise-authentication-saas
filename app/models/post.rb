@@ -13,10 +13,9 @@ class Post < ApplicationRecord
 	
 	def update_post (post_params)
 		if update_attributes post_params
-			set_flash_notice 'notice', 'Post updated'
-			redirect_back fallback_location: root_path
+			'Post updated'
 		else
-			set_flash_notice 'notice', 'Post updated'
+			'Post update failed'
 		end
 	end
 	
