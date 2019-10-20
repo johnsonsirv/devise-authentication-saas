@@ -1,0 +1,17 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-inline my-2 my-md-0") do |f| %>
+  <div class="d-flex flex-row justify-content-center">
+		 <div class="w-20 mr-2">
+				<%= f.label :email %><br>
+				<%= f.email_field :email, autofocus: true, autocomplete: "email"%><br>
+				<%= link_to "Forgot account?", '#', class: "text text-info" %>
+			</div>
+			<div class="w-20 mr-1">
+				<%= f.label :password %> <br>
+				<%= f.password_field :password, autocomplete: "current-password" %><br>
+				<%= link_to "Sign in with Facebook", '#', class: " text text-info disabled", id: "omniauth-btn" %> 
+			</div>
+			<div class="w-10 mt-4">
+    		<%= f.submit "Log In", class: "btn mt-2 btn-sm navbar-login-btn ml-1" %>
+			</div>
+	</div>
+<% end %>

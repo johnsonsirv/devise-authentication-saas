@@ -30,7 +30,6 @@ class PostsController < ApplicationController
 	def save_post(post_params)
 		@post = current_user.add_new_post(post_params)
 		if @post.errors.any?
-			#decision here, come back
 			set_flash_notice 'alert', 'Post could not be saved. Did you forget to write something?'
 			redirect_back fallback_location: root_path
 		else

@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+	@import "bootstrap";
+	@import "font-awesome";
+
+$blue-navbar-bg: #4267b2;
+$default-theme-bg: #e9ebee;
+$default-banner-bg: #e9ebee;
+$default-button-bg: #4267b2;
+$default-button-hover-bg: #2851A3;
+
+body { background: $default-theme-bg; }
+nav { background-color: $blue-navbar-bg; border-bottom: 1px solid #29487d; color: #fff; 
+	li a {
+		color: #fff;
+	}
+	a:hover{
+		color: #eee;
+	}
+	#navbarDropdown{
+		color: #000;
+	}
+	#omniauth-btn{color: #fff;}
+	.navbar-login-btn {
+		background-color: #4267b2; 
+		border-color: #29487d; 
+		color: #fff; 
+		font-weight: bold;
+		&:hover{
+			background-color: $default-button-hover-bg;
+			border-color: #29487d; 
+			color: #fff; 
+			font-weight: bold;
+		}
+	}
+	.navbar-brand {font-weight: bold; color: #fff; font-size: 2.5em;}
+}
+
+	@import "fb_custom";
+
+

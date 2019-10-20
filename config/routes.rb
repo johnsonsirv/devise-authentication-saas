@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 	resources :posts, only: [:index,  :create, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	
+	unauthenticated do
+		as :user do
+			root to: 'devise/registrations#new'
+		end
+	end
 	# devise_for :users, skip: :all
 	# devise_scope :user do
 	# get 'login', to: 'devise/sessions#new'
@@ -17,5 +22,5 @@ Rails.application.routes.draw do
 	# 	get 'signup', to: 'devise/registrations#new'
 	# end
 	
-	root to: 'home#index'
+	root to: 'post#index'
 end

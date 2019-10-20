@@ -1,9 +1,19 @@
-<div class="right top menu">
-	And other menu items
-	
-	<%= link_to 'This User', current_user %>
-	<%= link_to 'Home', root_path %>
-	<%= link_to 'Create(dropdown)', '#' %>
-	<%= link_to 'Find Friends', users_path %>
-	<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-</div>
+<li class="nav-item active">
+	<%= link_to 'This User', current_user, class: "nav-link"  %>
+</li>
+<li class="nav-item">
+	<%= link_to 'Home', root_path, class: "nav-link" %>
+</li>
+<li> <%= link_to 'Create(dropdown)', '#', class: "nav-link" %> </li>
+<li> <%= link_to 'Find Friends', users_path, class: "nav-link" %> </li>
+
+<li class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		
+	</a>
+	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+		<%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+		<div class="dropdown-divider"></div>
+		<%= link_to 'Profile', current_user, class: "dropdown-item" %>
+	</div>
+</li>
