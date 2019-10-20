@@ -1,3 +1,14 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+	color: #1d2129;
+	.card-header, .card-footer{ background-color: #f5f6f7; font-size: 12px;  font-weight: bold; }
+	.card-footer{font-size: 12px;}
+	textarea  { outline: none; resize: none; 
+		&:focus {
+			border-outline: none;
+		}
+	}
+}

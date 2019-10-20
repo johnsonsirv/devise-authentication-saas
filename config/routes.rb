@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 			root to: 'devise/registrations#new'
 		end
 	end
+	# authenticated do
+	# 	as :user do
+	# 		root to: 'home#index'
+	# 	end
+	# end
 	# devise_for :users, skip: :all
 	# devise_scope :user do
 	# get 'login', to: 'devise/sessions#new'
@@ -22,5 +27,5 @@ Rails.application.routes.draw do
 	# 	get 'signup', to: 'devise/registrations#new'
 	# end
 	
-	root to: 'post#index'
+	root to: 'posts#index'
 end

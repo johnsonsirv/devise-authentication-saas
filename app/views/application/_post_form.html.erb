@@ -1,6 +1,15 @@
 <%= form_for(@post) do |f| %>
-	
-	<%= f.text_area :content, placeholder: "Post content", class: "form-control" %>
-	
-	<%= f.submit %>
+	<div class="card">
+		<div class="card-header py-1"> Create Post </div>
+			<div class="card-body p-0">
+				<%= f.text_area :content, placeholder: "What's on your mind, #{current_user.fullname}?", 
+				class: "form-control",	rows:"3" %>
+			</div>
+			<div class="card-footer text-center py-2 px-3"> 
+				<span class="pr-4"> <%= fa_icon "fal fa-camera" %> <%= link_to 'Photo/Video', '#' %></span>
+				<span class="pr-4"> <%= fa_icon "far fa-photo-video" %> <%= link_to 'Tag Friends', '#' %></span>
+				<span class="pr-4"> <%= fa_icon "far fa-photo-video" %> <%= link_to 'Feeling/Activity', '#' %></span>
+				<span> <%= f.submit "Post", title: "Post", class: "btn btn-sm custom-default-btn" %> </span>
+			</div>
+	</div>
 <% end %>
