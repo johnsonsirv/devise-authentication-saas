@@ -22,10 +22,19 @@
 }
 
 .gravatar { width: 44px; height: 44px;}
-.post-author {  border: solid 1px; width: 75%; height: 52px;}
+.post-author { width: 75%; height: 52px; font-weight: bold; font-size: 1.1em;
+	a { color: $default-link-color}
+	p {font-size: 12px;  font-weight: normal;}
+}
+.post-body {text-align: justify; 
+		font-size: 14px;
+    font-weight: normal;
+    line-height: 1.38;
+	  color: #1d2129;
+}
 .post-actions {  width: 44px; height: 44px; 
 	.toggle-btn { 
-		font-weight:bold; font-size: 2.4em; line-height: 0px; padding: 0; height: 24px; display: inline-block;
+		font-weight: normal; font-size: 1.99em; line-height: 0px; padding: 0; height: 24px; display: inline-block;
 	}
 	&:hover {cursor: pointer; color: #dadde1; }
 	.dropdown-item { font-size: 12px; color: #1d2129; }

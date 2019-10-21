@@ -20,8 +20,9 @@ $default-theme-bg: #e9ebee;
 $default-banner-bg: #e9ebee;
 $default-button-bg: #4267b2;
 $default-button-hover-bg: #2851A3;
+$default-link-color: #4267b2;
 
-body { background: $default-theme-bg; }
+body { background: $default-theme-bg; font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important; }
 nav { background-color: $blue-navbar-bg; border-bottom: 1px solid #29487d; color: #fff; 
 	li a {
 		color: #fff;
