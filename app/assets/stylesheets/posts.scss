@@ -5,10 +5,29 @@
 .card {
 	color: #1d2129;
 	.card-header, .card-footer{ background-color: #f5f6f7; font-size: 12px;  font-weight: bold; }
-	.card-footer{font-size: 12px;}
+	.card-footer{font-size: 12px;
+		a {
+			color: #1d2129;
+		}
+		.social-btn{background-color: #f5f6f7; color: #1d2129;
+			&:hover{ background-color: #dadde1;}
+			i {letter-spacing: 2px; font-weight: bold;}
+		}
+	}
 	textarea  { outline: none; resize: none; 
 		&:focus {
 			border-outline: none;
 		}
 	}
+}
+
+.gravatar { width: 44px; height: 44px;}
+.post-author {  border: solid 1px; width: 75%; height: 52px;}
+.post-actions {  width: 44px; height: 44px; 
+	.toggle-btn { 
+		font-weight:bold; font-size: 2.4em; line-height: 0px; padding: 0; height: 24px; display: inline-block;
+	}
+	&:hover {cursor: pointer; color: #dadde1; }
+	.dropdown-item { font-size: 12px; color: #1d2129; }
+	.dropdown-menu {width: 40%;}
 }
