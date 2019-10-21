@@ -37,8 +37,13 @@ module PostsHelper
 		link_to 'Change date', '#', 
 		class: 'dropdown-item'
 	end
+	
 	def dropdown_item_divider
 		content_tag(:div, '', class: 'dropdown-divider')
+	end
+	
+	def unauthenticated_post_actions
+		content_tag(:a, 'No actions', href: '#', class: 'dropdown-item')
 	end
 	
 end
