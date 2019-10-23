@@ -1,6 +1,26 @@
-<p>Render banner-like header to show avatar </p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 ml-3 mr-auto">
+			<%= render 'user_timeline' %>
+			<div class="container mt-3">
+				<div class="row">
+					<div class="col-md-5 border user-bio-friends">
+						<%= render 'bio', user: @user %>
+						<div class="card mt-3 p-2">
+							<h5> <span class="user-profile-icons"><%= image_tag 'user-friends.png' %></span>  Friends  </h5>
+							<p>Friendship information will appear here in Milestone 5</p>
+						</div>
+					</div>
+					<div class="col-md-7 border">
+						<%= render 'post_form' %>
+						<%= render @posts || 'No Posts' %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<%= render 'bio', user: @user %>
-	<p>Render secondary user_nav_bar if you can - to mimick facebook</p>
-	<%= render 'post_form' %>
-	<%= render @posts || 'No Posts' %>
+	
+	
+	
