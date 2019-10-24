@@ -1,14 +1,14 @@
 <div class="container mt-3">
 	<div class="row">
-		<div class="col-3"> 
-			<p>render left of post partial (facebook web feeds, groups menu etc)</p>
+		<div class="col-2"> 
+			<%= render 'homepage_shortcuts_left' %>
 		</div>
-		<div class="col-5"> 
+		<div class="col-6"> 
 			<%= render 'post_form' %>
 			<%= render @posts %>
 		</div>
 		<div class="col-4"> 
-			<p>render right of post partial (facebook web suggested, ads menu etc)</p>
+				<%= render 'homepage_shortcuts_right' %>
 		</div>
 	</div>
 </div>

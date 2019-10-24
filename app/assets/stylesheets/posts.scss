@@ -70,3 +70,17 @@
 			&:hover { background-color: $default-button-hover-bg; color: #fff; }
 	}
 }
+
+.shortcut-left{
+	
+	.user-navlink {
+		.gravatar-20 { img{ width: 20px; height: 20px; border-radius: 50%; } }
+		a {  font-size: 12px; text-decoration: none; font-weight: bold; }
+		&:hover { background-color: #f2f3f5; cursor: pointer;}
+	}
+	.newsfeed-link {
+		img{ width: 20px; height: 20px; }
+		a { font-size: 14px; text-decoration: none;  font-weight: bold;color: #1d2129; }
+		&:hover { background-color: #f2f3f5; cursor: pointer;}
+	}
+}
