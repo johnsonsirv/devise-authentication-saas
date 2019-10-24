@@ -1,17 +1,17 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 ml-3 mr-auto">
-			<%= render 'user_timeline' %>
-			<div class="container mt-3">
+			<%= render 'user_timeline_banner' %>
+			<div class="container p-0 mt-3">
 				<div class="row">
-					<div class="col-md-5 border user-bio-friends">
+					<div class="col-md-5 user-bio-friends">
 						<%= render 'bio', user: @user %>
 						<div class="card mt-3 p-2">
 							<h5> <span class="user-profile-icons"><%= image_tag 'user-friends.png' %></span>  Friends  </h5>
 							<p>Friendship information will appear here in Milestone 5</p>
 						</div>
 					</div>
-					<div class="col-md-7 border">
+					<div class="col-md-7">
 						<%= render 'post_form' %>
 						<%= render @posts || 'No Posts' %>
 					</div>
