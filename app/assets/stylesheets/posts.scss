@@ -72,6 +72,7 @@
 }
 
 .shortcut-left{
+	position: fixed;
 	
 	.user-navlink {
 		.gravatar-20 { img{ width: 20px; height: 20px; border-radius: 50%; } }
@@ -80,7 +81,25 @@
 	}
 	.newsfeed-link {
 		img{ width: 20px; height: 20px; }
-		a { font-size: 14px; text-decoration: none;  font-weight: bold;color: #1d2129; }
+		a { font-size: 14px; text-decoration: none;  font-weight: bold; color: #1d2129; }
 		&:hover { background-color: #f2f3f5; cursor: pointer;}
 	}
+}
+
+.shortcut-right{
+	position: fixed;
+	width: 20%;
+	font-size: 12px;
+	h7 { font-weight: bold; color: #1d2129; font-size: 13px; }
+	footer{
+		font-size: 12px;
+		.copyright {color: #1d2129; font-weight: bold; }
+		ul{
+			list-style: none;
+			li {
+				display:inline-block;				
+			}
+		}
+	}
+	.lang {font-size: 11px; }
 }
