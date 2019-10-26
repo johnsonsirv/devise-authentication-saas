@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-6"> 
 			<%= render 'post_form' %>
-			<%= render @posts %>
+			<%= render @posts, cached: true %>
 		</div>
 		<div class="col-3"> 
 				<%= render 'homepage_shortcuts_right' %>
