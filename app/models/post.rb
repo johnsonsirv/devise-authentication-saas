@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 	belongs_to :user
 	
-	scope :authored_by, ->(user) {where(user_id: user).order(updated_at: :desc)}
+	scope :authored_by, ->(user) {where(user_id: user).includes(:user).order(updated_at: :desc)}
 	
 	validates :content, presence: true
 	
