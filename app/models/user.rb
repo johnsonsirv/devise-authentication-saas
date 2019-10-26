@@ -1,9 +1,22 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
+  has_many :posts
+	
+	scope :all_except, ->(user) { where.not(id: user) }
+
+	# Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 	devise :omniauthable, omniauth_providers: %i[facebook]
+	
+	
+	def fullname
+		"#{email}" #firstname+lastname
+	end
+	
+	def add_new_post(post_params)
+		posts.create(post_params)
+	end
 	
 	
 	def self.from_omniauth(auth)
