@@ -1,10 +1,7 @@
 <div>
-	<% if user_signed_in? %>
-		render left of post partial (facebook web feeds, groups menu etc)
-		render partial for Posts#index
-		render right of post partial (facebook web suggested, ads menu etc)
-		render rightmost of post partial (facebook friends online on messanger)
-	<% else %>
-			<p>render partial for home_page. Facbook home page</p>	
-	<% end %>
+		<p>render left of post partial (facebook web feeds, groups menu etc)</p>
+		<%= render 'post_form' %>	
+		<div> <%= render @posts %></div>
+		
+		<p>render partial for home_page. Facbook home page</p>	
 </div>
