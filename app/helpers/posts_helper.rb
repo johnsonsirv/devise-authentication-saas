@@ -47,7 +47,7 @@ module PostsHelper
 	end
 	
 	def show_total_post_comments_for(post)
-		return pluralize(spost.comments.count, 'Comment') if post.comments.any?
+		return pluralize(post.comments.count, 'Comment') if post.comments.any?
 		''
 	end
 end

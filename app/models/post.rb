@@ -2,10 +2,9 @@ class Post < ApplicationRecord
 	belongs_to :user
 	has_many :comments
 	
-	scope :authored_by, ->(user) { where(user_id: user).
-			includes(:user).order(updated_at: :desc).
-			includes(:comments).order(created_at: :desc)
-		}
+	scope :authored_by, ->(user) { where(user_id: user).order(updated_at: :desc)	}
+	
+	default_scope -> { includes(:user, :comments)}
 	
 	validates :content, presence: true
 	
