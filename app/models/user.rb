@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
+	has_many :comments
 	
 	scope :all_except, ->(user) { where.not(id: user) }
 
@@ -16,6 +17,10 @@ class User < ApplicationRecord
 	
 	def add_new_post(post_params)
 		posts.create(post_params)
+	end
+	
+	def add_new_comment(post_params)
+		comments.create(post_params)
 	end
 	
 	

@@ -46,4 +46,8 @@ module PostsHelper
 		content_tag(:a, 'No actions', href: '#', class: 'dropdown-item')
 	end
 	
+	def show_total_post_comments_for(post)
+		return pluralize(spost.comments.count, 'Comment') if post.comments.any?
+		''
+	end
 end

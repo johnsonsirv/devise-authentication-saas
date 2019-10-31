@@ -1,13 +1,16 @@
 class Post < ApplicationRecord
 	belongs_to :user
+	has_many :comments
 	
-	scope :authored_by, ->(user) {where(user_id: user).includes(:user).order(updated_at: :desc)}
+	scope :authored_by, ->(user) { where(user_id: user).
+			includes(:user).order(updated_at: :desc).
+			includes(:comments).order(created_at: :desc)
+		}
 	
 	validates :content, presence: true
 	
 	
 	def self.timeline_posts_for(user)
-		#in milestone 5>> modify to include posts from current_user's friendsr)
 		authored_by(user).order(updated_at: :desc)
 	end
 	
