@@ -4,9 +4,9 @@ class Post < ApplicationRecord
 	has_many :likes, as: :likeable, dependent: :destroy
 	
 	scope :authored_by, ->(user) { where(user_id: user).includes(:user).order(updated_at: :desc).
-			includes(:comments)}
+			includes(:comments).includes(:likes)}
 	
-	default_scope -> { includes(:likes)}
+	# default_scope -> {includes(:likes) }
 	
 	validates :content, presence: true
 	
