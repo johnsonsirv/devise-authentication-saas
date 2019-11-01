@@ -50,4 +50,10 @@ module PostsHelper
 		return pluralize(post.comments.count, 'Comment') if post.comments.any?
 		''
 	end
+	
+	def show_total_post_likes_for(post)
+		return "#{image_tag "icon-like.png"} #{post.likes.count }".html_safe if post.likes.any?
+		''
+	end
+	
 end
