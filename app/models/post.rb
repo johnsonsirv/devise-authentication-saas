@@ -1,10 +1,12 @@
 class Post < ApplicationRecord
 	belongs_to :user
-	has_many :comments
+	has_many :comments, dependent: :destroy
+	has_many :likes, as: :likeable, dependent: :destroy
 	
-	scope :authored_by, ->(user) { where(user_id: user).order(updated_at: :desc)	}
+	scope :authored_by, ->(user) { where(user_id: user).includes(:user).order(updated_at: :desc).
+			includes(:comments)}
 	
-	default_scope -> { includes(:user, :comments)}
+	# default_scope -> { includes(:user, :comments)}
 	
 	validates :content, presence: true
 	

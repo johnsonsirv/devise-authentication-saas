@@ -1,4 +1,4 @@
-<div class="card my-3">
+<div class="card my-3"  id="<%= post.id %>">
 		<div class="py-1 d-flex flex-row">
 			<div class="m-2 rounded-circle gravatar"> <%= image_tag 'gravatar.png' %> </div>
 			<div class="mr-2 post-author p-1"> 
@@ -16,7 +16,7 @@
 			</div>
 			<div class="card-footer text-center py-2 px-3"> 
 				<span class="pr-4"> 
-					<%= link_to content_tag(:i, "Like", class:"fa fa-thumbs-up pr-2"), '#', class:"btn btn-sm social-btn" %>
+					<%= show_likeable_button_for_resource(post) %>
 				</span>
 				<span class="pr-4">
 					<%= link_to content_tag(:i, "Comments", class:"fa fa-comments pr-2"), '#', class:"btn btn-sm social-btn" %> 
