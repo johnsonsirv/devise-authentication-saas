@@ -65,6 +65,7 @@
 }
 .comment-actions { font-size: 12px; 
 	a { color: $default-link-color; }
+	.unlike-link {font-weight: bold;}
 }
 
 .comment-editor {

@@ -1,4 +1,4 @@
-<div class="comments">
+<div class="comments" id="<%= comment.id %>">
 	<div class="py-1 d-flex flex-row">
 			<div class="comments-gravatar mr-2 rounded-circle"> <%= image_tag 'gravatar.png' %> </div>
 			<div class="comment-body pl-2 pt-1 pb-2"> 
@@ -6,8 +6,8 @@
 				<span class=""> <%= comment.content %> </span> 
 			</div>
 	</div>
-	<div class="comment-actions ml-5"> 
-		<%= link_to 'Like', '#', class:"pr-1" %> - 
+	<div class="comment-actions ml-5">
+		<%= show_likeable_link_for(comment) %> - 
 		<%= link_to 'Reply', '#', class: "pr-1" %> - 
 		<span class="text text-muted"> <%= time_ago_in_words(comment.created_at, include_seconds: true) %></span>
 	</div>
