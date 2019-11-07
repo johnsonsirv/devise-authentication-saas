@@ -2,7 +2,9 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	has_many :likes, dependent: :destroy
-	
+	has_many :friendships, dependent: :destroy
+  has_many :friend, through: :friendships
+  
 	scope :all_except, ->(user) { where.not(id: user) }
 
 	# Include default devise modules. Others available are:
