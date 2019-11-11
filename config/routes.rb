@@ -10,8 +10,11 @@ Rails.application.routes.draw do
 	resources :posts, only: [:index,  :create, :edit, :update, :destroy]
 	resources :comments, only: [:create, :destroy]
 	resources :likes, only: [:create, :destroy]
+  resources :friendships, only: [:create, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	
+  patch 'confirm_friend_request', to: 'friendships#update'
+  
 	unauthenticated do
 		as :user do
 			root to: 'devise/registrations#new'
