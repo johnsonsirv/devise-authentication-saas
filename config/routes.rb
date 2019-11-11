@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :friendships, only: [:create, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	
-  patch 'confirm_friend_request', to: 'friendships#update'
+  get '/friends', to: 'friendships#index'
+  get '/friend_requests', to: 'friendships#friend_requests'
+  
   
 	unauthenticated do
 		as :user do

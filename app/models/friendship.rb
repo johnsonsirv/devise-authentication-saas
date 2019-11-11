@@ -27,6 +27,9 @@ class Friendship < ApplicationRecord
     friendship.destroy_all
   end
   
+  def self.unconfirmed_friends_for(user)
+     pending_requests.where(friend: user).map(&:user)
+  end
  
   
     private

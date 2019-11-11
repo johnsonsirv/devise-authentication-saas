@@ -19,4 +19,9 @@ class FriendshipsController < ApplicationController
     set_flash_notice 'notice', 'Friendship Removed'
     redirect_back fallback_location: root_path
   end
+  
+  def friend_requests
+    @friends = Friendship.unconfirmed_friends_for current_user
+    render 'friends'
+  end
 end

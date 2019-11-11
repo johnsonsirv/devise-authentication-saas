@@ -60,4 +60,5 @@ module UsersHelper
     class: "btn btn-timeline-friend", 
     title: "Click to Unfriend"
   end
+  
 end
