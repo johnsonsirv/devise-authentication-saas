@@ -31,6 +31,9 @@ class Friendship < ApplicationRecord
      pending_requests.where(friend: user).map(&:user)
   end
  
+  def self.confirmed_friends_for(user)
+     confirmed.where(user: user).map(&:friend)
+  end
   
     private
 

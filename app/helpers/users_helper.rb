@@ -61,4 +61,17 @@ module UsersHelper
     title: "Click to Unfriend"
   end
   
+  
+  def count_friends_for(user)
+    return Friendship
+    .confirmed_friends_for(user)
+    .size if has_friends?(user)
+    
+    'no friends yet'
+  end
+  
+  def has_friends?(user)
+    Friendship
+    .confirmed_friends_for(user).any?
+  end
 end

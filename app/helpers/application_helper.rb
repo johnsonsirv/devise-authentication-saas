@@ -26,7 +26,8 @@ module ApplicationHelper
   
   def count_friend_request
     return Friendship
-    .unconfirmed_friends_for(current_user).size if has_request?
+    .unconfirmed_friends_for(current_user)
+    .size if has_request?
     
     ''
   end
