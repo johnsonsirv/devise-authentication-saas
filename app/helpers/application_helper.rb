@@ -24,30 +24,33 @@ module ApplicationHelper
 			find_by(user: current_user)
 	end
   
-  def count_friend_request
+  def count_friend_request(user)
     return Friendship
-    .unconfirmed_friends_for(current_user)
-    .size if has_request?
+    .unconfirmed_friends_for(user)
+    .size if has_request?(user)
     
     ''
   end
   
-  def has_request?
+  def has_request?(user)
     Friendship
-    .unconfirmed_friends_for(current_user).any?
+    .unconfirmed_friends_for(user).any?
   end
   
   def friend_requests_for(user)
-     return Friendship
-    .unconfirmed_max_friends_for(user, 5)
-  end 
+    return Friendship
+    .pending_requests.where(friend: user)
+    .order(created_at: :desc)
+    .limit(5).map(&:user)
+  end
   
-  def show_friend_request_icon
-    return link_to content_tag(:i, count_friend_request, 
+  
+  def show_friend_request_icon(user)
+    return link_to content_tag(:i, content_tag(:b, count_friend_request(user)), 
       class: 'fa fa-users has-request'), 
     friend_requests_path, 
-    title: "#{pluralize(count_friend_request, 'Friend request')}", 
-    class: 'nav-link' if has_request?
+    title: "#{pluralize(count_friend_request(user), 'Friend request')}", 
+    class: 'nav-link' if has_request?(user)
     
     link_to content_tag(:i, '', 
     class: 'fa fa-users'), 

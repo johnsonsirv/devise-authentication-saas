@@ -77,7 +77,8 @@ module UsersHelper
   
   def friends_for(user)
      return Friendship
-    .confirmed_max_friends_for(user, 5)
+    .confirmed.where(user: user)
+    .limit(5).map(&:friend)
     
   end
   
@@ -88,8 +89,16 @@ module UsersHelper
   end
   
   def mutual_friends_with(user)
-     return Friendship
-    .mutual_max_friends_between(current_user, user, 5)
+    return Friendship
+    .find_by_sql(["SELECT friendships.*
+    FROM friendships
+    WHERE friendships.user_id = ?
+    AND friendships.friend_id
+    IN ( SELECT friendships.friend_id
+          FROM friendships
+          WHERE friendships.user_id = ?
+          AND confirmed = ?
+        ) LIMIT ?;", user.id, other_user.id, true, 5]).map(&:friend)
   end
   
 end

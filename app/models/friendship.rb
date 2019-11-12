@@ -5,7 +5,7 @@ class Friendship < ApplicationRecord
   scope :pending_requests, -> { where(confirmed: false) }
   scope :confirmed, -> { where(confirmed: true) }
   
- default_scope -> {includes(:user) }
+   default_scope -> { includes(:user) }
   
   validate :is_self_irreflexive
   validates :user, presence: true
@@ -39,37 +39,16 @@ class Friendship < ApplicationRecord
   
   def self.mutual_friends_between(user, other_user)
      find_by_sql(["SELECT friendships.*
-                  FROM friendships
-                  WHERE friendships.user_id = ?
-                  AND friendships.friend_id
-                  IN ( SELECT friendships.friend_id
-                        FROM friendships
-                        WHERE friendships.user_id = ?
-                        AND confirmed = ?
-                      );", user.id, other_user.id, true]).map(&:friend)
+      FROM friendships
+      WHERE friendships.user_id = ?
+      AND friendships.friend_id
+      IN ( SELECT friendships.friend_id
+            FROM friendships
+            WHERE friendships.user_id = ?
+            AND confirmed = ?
+          );", user.id, other_user.id, true]).map(&:friend)
   end
   
-  def self.unconfirmed_max_friends_for(user, max)
-     pending_requests.where(friend: user)
-    .limit(max).map(&:user)
-  end
-  
-  def self.confirmed_max_friends_for(user, max)
-     confirmed.where(user: user)
-    .limit(max).map(&:friend)
-  end
-  
-  def self.mutual_max_friends_between(user, other_user, max)
-     find_by_sql(["SELECT friendships.*
-                  FROM friendships
-                  WHERE friendships.user_id = ?
-                  AND friendships.friend_id
-                  IN ( SELECT friendships.friend_id
-                        FROM friendships
-                        WHERE friendships.user_id = ?
-                        AND confirmed = ?
-                      ) LIMIT ?;", user.id, other_user.id, true, max]).map(&:friend)
-  end
   
     private
 
