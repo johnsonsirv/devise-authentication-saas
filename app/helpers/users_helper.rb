@@ -77,8 +77,7 @@ module UsersHelper
   
   def friends_for(user)
      return Friendship
-    .confirmed_friends_for(user)
-    .limit(5)
+    .confirmed_max_friends_for(user, 5)
     
   end
   
@@ -90,8 +89,7 @@ module UsersHelper
   
   def mutual_friends_with(user)
      return Friendship
-    .mutual_friends_between(current_user, user)
-    .limit(5)
+    .mutual_max_friends_between(current_user, user, 5)
   end
   
 end
