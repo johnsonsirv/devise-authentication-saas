@@ -74,4 +74,24 @@ module UsersHelper
     Friendship
     .confirmed_friends_for(user).any?
   end
+  
+  def friends_for(user)
+     return Friendship
+    .confirmed_friends_for(user)
+    .limit(5)
+    
+  end
+  
+   def has_mutual_friends_with?(user)
+    Friendship
+    .mutual_friends_between(current_user, user)
+     .any? && current_user != user
+  end
+  
+  def mutual_friends_with(user)
+     return Friendship
+    .mutual_friends_between(current_user, user)
+    .limit(5)
+  end
+  
 end
