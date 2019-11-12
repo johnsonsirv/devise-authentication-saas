@@ -5,6 +5,8 @@ class Friendship < ApplicationRecord
   scope :pending_requests, -> { where(confirmed: false) }
   scope :confirmed, -> { where(confirmed: true) }
   
+ default_scope -> {includes(:user) }
+  
   validate :is_self_irreflexive
   validates :user, presence: true
   validates :friend, presence: true, uniqueness: { scope: :user }
@@ -45,6 +47,11 @@ class Friendship < ApplicationRecord
                         WHERE friendships.user_id = ?
                         AND confirmed = ?
                       );", user.id, other_user.id, true]).map(&:friend)
+  end
+  
+  def self.unconfirmed_max_friends_for(user, max)
+     pending_requests.where(friend: user)
+    .limit(max).map(&:user)
   end
   
   def self.confirmed_max_friends_for(user, max)

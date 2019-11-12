@@ -37,6 +37,11 @@ module ApplicationHelper
     .unconfirmed_friends_for(current_user).any?
   end
   
+  def friend_requests_for(user)
+     return Friendship
+    .unconfirmed_max_friends_for(user, 5)
+  end 
+  
   def show_friend_request_icon
     return link_to content_tag(:i, count_friend_request, 
       class: 'fa fa-users has-request'), 
