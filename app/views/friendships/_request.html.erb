@@ -1,0 +1,9 @@
+<div class="row m-2 p-0 border-bottom">	
+	<div class="col-md-2 p-0"> <div class="find-friends-gravatar border mb-3"> <%= gravatar_for(request) %></div></div>
+	<div class="col-md-4 p-0 pt-4"> <span> <%= link_to request.fullname, request %> </span> </div>
+	<div class="col-md-3 pt-4"> 
+   <i class="fa fa-user-plus"></i> 
+    <%= link_to 'Confirm Friend', friendship_path(request),  method: :patch, class: "btn  btn-sm custom-default-btn", 
+    title: "Confirm friend request" %>
+  </div>
+</div>
